@@ -15,13 +15,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class Home extends AppCompatActivity {
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitle("Top Stories");
+        toolbar.setTitleTextColor(0xffffffff);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -32,38 +35,7 @@ public class Home extends AppCompatActivity {
             }
         });
 
-        DrawerLayout drawerLayout =(DrawerLayout) findViewById(R.id.dLayout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawerLayout, toolbar, R.string.openDrawer , R.string.closeDrawer);
-        drawerLayout.setDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(MenuItem item) {
-                int id = item.getItemId();
-                //when either of the ids are selected, do the action
-                switch (id){
-                    case R.id.news:
-                        Intent i = new Intent(Home.this, News.class);
-                        startActivity(i);
-                        break;
-                    case R.id.sports:
-                        Intent j = new Intent(Home.this, Sports.class);
-                        startActivity(j);
-                        break;
-                    case R.id.technical:
-                        Intent k = new Intent(Home.this, Tech.class);
-                        startActivity(k);
-                        break;
-                }
-
-                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.dLayout);
-                drawer.closeDrawer(GravityCompat.START);
-                return true;
-            }
-        });
+        navigationDrawer();
     }
 
     @Override
@@ -87,5 +59,40 @@ public class Home extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+     public void navigationDrawer(){
+         DrawerLayout drawerLayout =(DrawerLayout) findViewById(R.id.dLayout);
+         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                 this, drawerLayout, toolbar, R.string.openDrawer , R.string.closeDrawer);
+         drawerLayout.setDrawerListener(toggle);
+         toggle.syncState();
+
+         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
+         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+             @Override
+             public boolean onNavigationItemSelected(MenuItem item) {
+                 int id = item.getItemId();
+                 //when either of the ids are selected, do the action
+                 switch (id){
+                     case R.id.news:
+                         Intent i = new Intent(Home.this, News.class);
+                         startActivity(i);
+                         break;
+                     case R.id.sports:
+                         Intent j = new Intent(Home.this, Sports.class);
+                         startActivity(j);
+                         break;
+                     case R.id.technical:
+                         Intent k = new Intent(Home.this, Tech.class);
+                         startActivity(k);
+                         break;
+                 }
+
+                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.dLayout);
+                 drawer.closeDrawer(GravityCompat.START);
+                 return true;
+             }
+         });
+
+     }
 
 }
