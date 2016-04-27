@@ -23,7 +23,15 @@
             android:label="@string/title_activity_news"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Sports" />
-        <activity android:name=".Tech"></activity>
+        <activity android:name=".Tech" />
+        <activity
+            android:name=".Tabs"
+            android:label="@string/title_activity_tabs"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".RoundUp"
+            android:label="@string/title_activity_round_up"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

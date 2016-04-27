@@ -85,6 +85,9 @@ public class Home extends AppCompatActivity {
                          Intent k = new Intent(Home.this, Tech.class);
                          startActivity(k);
                          break;
+                     case R.id.roundup:
+                         Intent l = new Intent(Home.this, RoundUp.class);
+                         startActivity(l);
                  }
 
                  DrawerLayout drawer = (DrawerLayout) findViewById(R.id.dLayout);

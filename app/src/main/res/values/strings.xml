@@ -20,4 +20,13 @@ Donec tempor, leo in convallis egestas, elit ipsum porttitor augue, et condiment
 
 Donec quis nunc quis ex auctor egestas. Nulla sollicitudin lectus eu consequat imperdiet. Morbi pellentesque diam eget risus semper suscipit. Nunc finibus turpis vitae dolor malesuada, in ornare ipsum malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer commodo mi non fermentum rhoncus. Nunc vestibulum dui metus. Fusce et ipsum lobortis erat accumsan iaculis.
     </string>
+    <string name="title_activity_tabs">Tabs</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_round_up">RoundUp</string>
+    <string name="county_news">County News</string>
+    <string name="fashion_news">Fashion News</string>
+    <string name="trending">What\'s trending</string>
 </resources>
