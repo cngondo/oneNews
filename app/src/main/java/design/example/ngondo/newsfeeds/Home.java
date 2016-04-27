@@ -1,8 +1,13 @@
 package design.example.ngondo.newsfeeds;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -14,7 +19,7 @@ public class Home extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -24,6 +29,39 @@ public class Home extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+            }
+        });
+
+        DrawerLayout drawerLayout =(DrawerLayout) findViewById(R.id.dLayout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawerLayout, toolbar, R.string.openDrawer , R.string.closeDrawer);
+        drawerLayout.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                int id = item.getItemId();
+                //when either of the ids are selected, do the action
+                switch (id){
+                    case R.id.news:
+                        Intent i = new Intent(Home.this, News.class);
+                        startActivity(i);
+                        break;
+                    case R.id.sports:
+                        Intent j = new Intent(Home.this, Sports.class);
+                        startActivity(j);
+                        break;
+                    case R.id.technical:
+                        Intent k = new Intent(Home.this, Tech.class);
+                        startActivity(k);
+                        break;
+                }
+
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.dLayout);
+                drawer.closeDrawer(GravityCompat.START);
+                return true;
             }
         });
     }
@@ -49,4 +87,5 @@ public class Home extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
